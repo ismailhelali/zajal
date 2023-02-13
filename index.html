@@ -159,6 +159,7 @@
 و الحروف هي ما يجعل من حاضرنا شيء خالدا للأبد.
 </h2>
 <div class="cmd">
+  <br>
             <h1 dir="rtl">كيف يمكن  تقديم الطلب ؟</h1>
 
         <h2 dir="rtl">أرسل بريدًا إلكترونيًا بمتطلباتك وتفاصيل الطلب.</h2>
@@ -168,6 +169,7 @@
         <h2 dir="rtl">بمجرد قبولك لعرض الأسعار وإجراء الدفع ، سنبدأ العمل على طلبك.</h2>
 
         <h2 dir="rtl"> سوف نرسل لك مسودة للتحقق قبل تسليم المنتج النهائي لك. </h2>
+  <br>
 </div>
 <br>
 
@@ -187,6 +189,20 @@
       <h2 dir="rtl">يمكنك الاتصال بنا على عنوان البريد الإلكتروني التالي <a href="mailto:helaliismail@gmail.com">البريد الالكتروني</a></h2>
       <h2 dir="rtl">أو يمكنك الإرسال مباشرة عبر موقعنا الإلكتروني</h2>
 
+      <h1>اطلب كلماتك هنا</h1>
+  <h2>لأي طلب لا تتردد في الاتصال بنا. ستتصل بك خدمة العملاء لدينا في أقرب وقت ممكن.</h2>
+    <div class="contactform">
+        <form id="myForm">
+  <input type="text" placeholder="الاسم الكامل" name="name"><br>
+  <input type="email" placeholder="بريدك الالكتروني" name="email"><br>
+  <input type="tel" placeholder="رقم الهاتف" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+  <label for="message">أخبرني عن مشروعك أو طلبك</label><br>
+  <textarea name="message"></textarea><br>
+
+
+   <input class="button" type="button" value="Envoyer" onclick="submitForm() ; clearForm()">
+        </form>
+    </div>
     </main>
 
     <footer>
@@ -198,3 +214,41 @@
     
   </body>
 </html>
+<script>
+function clearForm() {
+    document.getElementById("myForm").reset();
+}  
+  
+  
+function submitForm() {
+  var form = document.getElementById("myForm");
+
+  // check if name and email fields are filled in
+  if(form.name.value == "" || form.email.value == "") {
+    alert("Name and Email fields are required!");
+    return;
+  }
+
+  // check if email address is valid
+  var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  if(!emailRegex.test(form.email.value)) {
+    alert("Invalid email address!");
+    return;
+  }
+
+  var data = new FormData(form);
+  
+  fetch("https://script.google.com/macros/s/AKfycbxU1kkEfZH-6Dg7jWGkgUCYVHtnm2DpBdlZ-yAapNrhfA3bpgDR_wTNpEGLTri-xvuv2g/exec", {
+    method: "POST",
+    body: data
+  })
+  .then(function(response) {
+    return response.text();
+  })
+  .then(function(text) {
+    console.log(text);
+    alert(text);
+  });
+}
+
+    </script>
