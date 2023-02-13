@@ -190,9 +190,9 @@
       <h2 dir="rtl">يمكنك الاتصال بنا على عنوان البريد الإلكتروني التالي <a href="mailto:helaliismail@gmail.com">البريد الالكتروني</a></h2>
       <h2 dir="rtl">أو يمكنك الإرسال مباشرة عبر موقعنا الإلكتروني</h2>
 
-      <h1>اطلب كلماتك هنا</h1>
-  <h2>لأي طلب لا تتردد في الاتصال بنا. ستتصل بك خدمة العملاء لدينا في أقرب وقت ممكن.</h2>
-    <div class="contactform">
+      <h1 dir="rtl">اطلب كلماتك هنا</h1>
+  <h2 dir="rtl">لأي طلب لا تتردد في الاتصال بنا. ستتصل بك خدمة العملاء لدينا في أقرب وقت ممكن.</h2>
+    <div class="contactform" dir="rtl">
         <form id="myForm">
   <input type="text" placeholder="الاسم الكامل" name="name"><br>
   <input type="email" placeholder="بريدك الالكتروني" name="email"><br>
@@ -201,7 +201,7 @@
   <textarea name="message"></textarea><br>
 
 
-   <input class="button" type="button" value="Envoyer" onclick="submitForm() ; clearForm()">
+   <input class="button" type="button" value="ارسل الطلب" onclick="submitForm() ; clearForm()">
         </form>
     </div>
     </main>
@@ -226,14 +226,14 @@ function submitForm() {
 
   // check if name and email fields are filled in
   if(form.name.value == "" || form.email.value == "") {
-    alert("Name and Email fields are required!");
+    alert("المرجوا ادخال الاسم والبريد الإلكتروني!");
     return;
   }
 
   // check if email address is valid
   var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   if(!emailRegex.test(form.email.value)) {
-    alert("Invalid email address!");
+    alert("عنوان البريد الإلكتروني غير صحيح");
     return;
   }
 
